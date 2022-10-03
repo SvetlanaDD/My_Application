@@ -13,10 +13,11 @@
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
         android:layout_marginBottom="@dimen/margin_size"
+        android:contentDescription="@string/avatar"
+        app:layout_constraintBottom_toBottomOf="@id/barrierTop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@sample/posts_avatars"
-        android:contentDescription="@string/avatar" />
+        app:srcCompat="@xml/post_avatar_drawable" />
 
     <TextView
         android:id="@+id/author"
@@ -49,10 +50,10 @@
         android:layout_marginTop="@dimen/margin_size"
         android:layout_marginEnd="@dimen/margin_size"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_baseline_more_vert_24"
-        android:contentDescription="@string/menu" />
+        app:srcCompat="@drawable/ic_more_vert_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierTop"
@@ -76,10 +77,10 @@
         android:layout_height="@dimen/service_image_size"
         android:layout_marginStart="@dimen/margin_size"
         android:layout_marginTop="@dimen/margin_size"
+        android:contentDescription="@string/like"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
-        android:contentDescription="@string/like" />
+        app:srcCompat="@drawable/ic_like_24" />
 
     <TextView
         android:id="@+id/like_count"
@@ -97,10 +98,10 @@
         android:layout_height="@dimen/service_image_size"
         android:layout_marginStart="50dp"
         android:layout_marginTop="@dimen/margin_size"
+        android:contentDescription="@string/repost"
         app:layout_constraintStart_toEndOf="@id/like"
         app:layout_constraintTop_toBottomOf="@id/content"
-        app:srcCompat="@drawable/ic_baseline_share_24"
-        android:contentDescription="@string/repost" />
+        app:srcCompat="@drawable/ic_repost_24" />
 
     <TextView
         android:id="@+id/repost_count"
@@ -118,10 +119,10 @@
         android:layout_height="@dimen/service_image_size"
         android:layout_marginTop="@dimen/margin_size"
         android:layout_marginEnd="5dp"
+        android:contentDescription="@string/view"
         app:layout_constraintEnd_toStartOf="@id/view_count"
         app:layout_constraintTop_toBottomOf="@id/content"
-        app:srcCompat="@drawable/ic_baseline_visibility_24"
-        android:contentDescription="@string/view" />
+        app:srcCompat="@drawable/ic_like_24" />
 
     <TextView
         android:id="@+id/view_count"
