@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likeCount?.text = rulesCount(post.likes)
-            repostCount?.text = rulesCount(post.repost)
+            likeCount?.text = Function().rulesCount(post.likes)
+            repostCount?.text = Function().rulesCount(post.repost)
             viewCount?.text = post.view.toString()
 
             if (post.likedByMe) {
@@ -42,44 +42,18 @@ class MainActivity : AppCompatActivity() {
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
                 if (post.likedByMe) post.likes++ else post.likes--
-                likeCount?.text = rulesCount(post.likes)
+                likeCount?.text = Function().rulesCount(post.likes)
             }
 
 
             repost?.setOnClickListener {
                 post.repost++
-                repostCount?.text = rulesCount(post.repost)
+                repostCount?.text = Function().rulesCount(post.repost)
             }
 
         }
 
     }
 
-    private fun rulesCount(like: Int): String {
-        if (like > 1000 && like < 10000 && like % 1000 != 0 && like % 1000 >= 100) {
-            val likeFormat = like / 1000.0
-            val df = DecimalFormat("#.#")
-            df.roundingMode = RoundingMode.DOWN
-            return String.format("%sK", df.format(likeFormat))
-        } else
-            if (like >= 1000 && like < 10000 && (like % 1000 == 0 || like % 1000 < 100)) return String.format(
-                "%dK",
-                like / 1000
-            )
-            else
-                if (like >= 10000 && like < 1000000) return String.format("%dK", like / 1000)
-                else
-                    if (like >= 1000000 && (like / 1000 % 1000 == 0 || like / 1000 % 1000 < 100)) return String.format(
-                        "%dM",
-                        like / 1000000
-                    )
-                    else
-                        if (like >= 1000000) {
-                            val likeFormat = like / 1000000.0
-                            val df = DecimalFormat("#.#")
-                            df.roundingMode = RoundingMode.DOWN
-                            return String.format("%sM", df.format(likeFormat))
-                        }
-        return String.format("%d", like)
-    }
+
 }
