@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NMedia</string>
     <string name="nmedia">NMedia!</string>
+    <string name="avatar">Avatar Netology</string>
+    <string name="menu">menu</string>
+    <string name="like" translatable="false">like</string>
+    <string name="repost" translatable="false">repost</string>
+    <string name="view">views</string>
 </resources>
