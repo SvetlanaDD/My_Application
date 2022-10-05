@@ -22,21 +22,20 @@ class MainActivity : AppCompatActivity() {
                 content.text = post.content
                 likeCount?.text = Function().rulesCount(post.likes)
                 repostCount?.text = Function().rulesCount(post.repost)
-                viewCount?.text = post.view.toString()
+                viewCount?.text = Function().rulesCount(post.view)
 
                 like.setImageResource(
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
 
             }
+        }
+        binding.like.setOnClickListener {
+            viewModel.like()
+        }
 
-            binding.like.setOnClickListener {
-                viewModel.like()
-            }
-
-            binding.repost.setOnClickListener {
-                viewModel.repost()
-            }
+        binding.repost.setOnClickListener {
+            viewModel.repost()
         }
     }
 }
