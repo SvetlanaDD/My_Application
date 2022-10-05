@@ -1,4 +1,4 @@
-package ru.netology.nmedia
+package ru.netology.nmedia.activity
 
 import java.math.RoundingMode
 import java.text.DecimalFormat
