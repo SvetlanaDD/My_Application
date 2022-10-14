@@ -3,4 +3,5 @@
     <dimen name="avatar_size">48dp</dimen>
     <dimen name="margin_size">16dp</dimen>
     <dimen name="service_image_size">24dp</dimen>
+    <dimen name="edit_button">48dp</dimen>
 </resources>
