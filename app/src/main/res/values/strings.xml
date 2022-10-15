@@ -6,4 +6,10 @@
     <string name="like" translatable="false">like</string>
     <string name="repost" translatable="false">repost</string>
     <string name="view">views</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_remove">Remove</string>
+    <string name="post_text">Post Text</string>
+    <string name="save_post">Save Post</string>
+    <string name="error_empty_content">Content can\'t be empty</string>
+    <string name="edit_post">Edit post</string>
 </resources>
