@@ -45,9 +45,9 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likeCount.text = Function().rulesCount(post.likes)
-            repostCount.text = Function().rulesCount(post.repost)
-            viewCount.text = Function().rulesCount(post.view)
+            like.text = Function().rulesCount(post.likes)
+            repost.text = Function().rulesCount(post.repost)
+            view.text = Function().rulesCount(post.view)
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -67,11 +67,13 @@ class PostViewHolder(
                         }
                     }
                 }.show()
+                menu.isChecked = false      ///!!!!!!!
             }
 
-            like.setImageResource(
-                if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
-            )
+            like.isChecked = post.likedByMe
+//            like.setImageResource(
+//                if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
+//            )
 
             like.setOnClickListener{
                 onInteractionListener.onLike(post)
