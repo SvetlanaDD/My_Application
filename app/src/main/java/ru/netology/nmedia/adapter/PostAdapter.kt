@@ -67,7 +67,7 @@ class PostViewHolder(
                         }
                     }
                 }.show()
-                menu.isChecked = false      ///!!!!!!!
+ //               menu.isChecked = false      ///!!!!!!!
             }
 
             like.isChecked = post.likedByMe
