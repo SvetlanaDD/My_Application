@@ -12,4 +12,6 @@
     <string name="save_post">Save Post</string>
     <string name="error_empty_content">Content can\'t be empty</string>
     <string name="edit_post">Edit post</string>
+    <string name="choose_repost_content">Repost post</string>
+    <string name="description_add_post">Add post</string>
 </resources>
