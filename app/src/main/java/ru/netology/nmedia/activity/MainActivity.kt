@@ -3,8 +3,6 @@ package ru.netology.nmedia.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.activity.result.launch
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.viewmodel.PostViewModel
 import androidx.activity.viewModels
@@ -18,7 +16,6 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: PostViewModel by viewModels()
     private val interactionListener = object : OnInteractionListener {
         override fun onEdit(post: Post) {
-            binding.groupEdit.visibility = View.VISIBLE
             viewModel.edit(post)
         }
 
@@ -46,8 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     val newPostLauncher = registerForActivityResult(NewPostActivity.Contract) { result ->
         result ?: return@registerForActivityResult
-        viewModel.changeContent(result)
-        viewModel.save()
+        viewModel.changeContentAndSave(result)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +57,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.list.adapter = adapter
-        binding.groupEdit.visibility = View.GONE // скрыть группу View редактирования поста
     }
 
     private fun subscribe() {
@@ -71,51 +66,14 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.edited.observe(this) { post ->
             if (post.id != 0L) {
-                binding.textPost.text = post.content // заполняем поле Редактирование поста
-                with(binding.content) {
-                    requestFocus()              // как только edited меняется, обновляем текст
-                    setText(post.content)
-                }
+                newPostLauncher.launch(post.content)
             }
         }
     }
 
     private fun setupListeners() {
         binding.add.setOnClickListener{
-            newPostLauncher.launch()
-        }
-  /*      binding.save.setOnClickListener {
-            with(binding.content) {
-                // показ всплывающей подсказки error_empty_content
-                if (text.isEmpty()) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        context.getString(R.string.error_empty_content),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-/* теперь эти функции обрабатываются newPostLauncher
-                    viewModel.changeContent(text.toString())
-                    viewModel.save()
- */
-                    binding.groupEdit.visibility = View.GONE // скрыть группу View редактирования поста, если она есть
-                    setText("")                             // обнуление поля ввода
-                    clearFocus()
-                    AndroidUtils.hideKeyboard(this)     // скрыть клавиатуру
-                }
-            }
-        }
-
-   */
-        binding.removeEdit.setOnClickListener {
-//            with(binding.content) {
-//                viewModel.save()
-//                binding.groupEdit.visibility = View.GONE // скрыть группу View редактирования поста
-//                setText("")                             // обнуление поля ввода
-//                clearFocus()
-//                AndroidUtils.hideKeyboard(this)     // скрыть клавиатуру
-//            }
+            newPostLauncher.launch(null)
         }
     }
-
 }

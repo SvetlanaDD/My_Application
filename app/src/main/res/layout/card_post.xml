@@ -45,18 +45,6 @@
         app:layout_constraintTop_toBottomOf="@id/author"
         tools:text="@sample/posts.json/data/published" />
 
-    <!--ImageButton
-        android:id="@+id/menu"
-        android:layout_width="@dimen/service_image_size"
-        android:layout_height="@dimen/service_image_size"
-        android:layout_marginTop="@dimen/margin_size"
-        android:layout_marginEnd="@dimen/margin_size"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_more_vert_24" /-->
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/menu"
         android:layout_width="wrap_content"
@@ -85,30 +73,6 @@
         app:layout_constraintTop_toTopOf="@id/barrierTop"
         tools:text="@sample/posts.json/data/content" />
 
-    <!--ImageView
-        android:id="@+id/like"
-        android:layout_width="@dimen/service_image_size"
-        android:layout_height="@dimen/service_image_size"
-        android:layout_marginStart="@dimen/margin_size"
-        android:layout_marginTop="@dimen/margin_size"
-        android:contentDescription="@string/like"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content"
-        app:srcCompat="@drawable/ic_like_24" /-->
-
-    <!--com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_size"
-        android:contentDescription="@string/like"
-        android:button="@drawable/ic_like_24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content"
-        tools:checked="true"
-        tools:text="5"
-        style="@style/Widget.AppTheme.LikeCheckBox"/-->
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/like"
         android:layout_width="wrap_content"
@@ -123,16 +87,6 @@
         style="@style/Widget.AppTheme.LikeButton"
         />
 
-    <!--TextView
-        android:id="@+id/like_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        app:layout_constraintBottom_toBottomOf="@id/like"
-        app:layout_constraintStart_toEndOf="@id/like"
-        app:layout_constraintTop_toTopOf="@id/like"
-        tools:text="5" /-->
-
     <Button
         android:id="@+id/repost"
         android:layout_width="wrap_content"
@@ -145,26 +99,6 @@
         style="@style/Widget.AppTheme.RepostButton"
         />
 
-    <!--ImageView
-        android:id="@+id/repost"
-        android:layout_width="@dimen/service_image_size"
-        android:layout_height="@dimen/service_image_size"
-        android:layout_marginStart="@dimen/margin_size"
-        android:contentDescription="@string/repost"
-        app:layout_constraintStart_toEndOf="@id/like"
-        app:layout_constraintTop_toBottomOf="@id/content"
-        app:srcCompat="@drawable/ic_repost_24" /-->
-
-    <!--TextView
-        android:id="@+id/repost_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        app:layout_constraintBottom_toBottomOf="@id/repost"
-        app:layout_constraintStart_toEndOf="@id/repost"
-        app:layout_constraintTop_toTopOf="@id/repost"
-        tools:text="3" /-->
-
     <Button
         android:id="@+id/view"
         android:layout_width="wrap_content"
@@ -176,30 +110,5 @@
         tools:text="2"
         style="@style/Widget.AppTheme.RepostButton"
         />
-
-    <!--ImageView
-        android:id="@+id/view"
-        android:layout_width="@dimen/service_image_size"
-        android:layout_height="@dimen/service_image_size"
-        android:layout_marginTop="@dimen/margin_size"
-        android:layout_marginEnd="5dp"
-        android:contentDescription="@string/view"
-        app:layout_constraintEnd_toStartOf="@id/view_count"
-        app:layout_constraintTop_toBottomOf="@id/content"
-        app:srcCompat="@drawable/ic_visibility_24" />
-
-    <TextView
-        android:id="@+id/view_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_size"
-        app:layout_constraintBottom_toBottomOf="@id/view"
-        app:layout_constraintEnd_toEndOf="@id/content"
-        app:layout_constraintTop_toTopOf="@id/view"
-        tools:text="102" /-->
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

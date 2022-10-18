@@ -14,6 +14,9 @@ class NewPostActivity : AppCompatActivity() {
         val binding = ActivityNewPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val text = intent?.getStringExtra(Intent.EXTRA_TEXT) // текст, который передали при createIntent в Contract (текст поста)
+        binding.content.setText(text)                       // устанавливаем его в окно редактирования
+
         binding.ok.setOnClickListener(){
             val content = binding.content.text.toString()
             if (content.isEmpty()){
@@ -24,10 +27,10 @@ class NewPostActivity : AppCompatActivity() {
             finish()
         }
     }
-    object Contract : ActivityResultContract<Unit, String?>() {
+    object Contract : ActivityResultContract<String?, String?>() {                  // на входе теперь текст
 
-        override fun createIntent(context: Context, input: Unit): Intent =
-            Intent(context, NewPostActivity::class.java)
+        override fun createIntent(context: Context, input: String?): Intent =
+            Intent(context, NewPostActivity::class.java).putExtra(Intent.EXTRA_TEXT, input)
 
         override fun parseResult(resultCode: Int, intent: Intent?): String? =
             if (resultCode == Activity.RESULT_OK) {
