@@ -14,7 +14,8 @@ private val empty = Post(
     published = "",
     likes = 0,
     repost = 0,
-    view = 0
+    view = 0,
+    video = null
 )
 
 class PostViewModel : ViewModel() {
@@ -27,7 +28,7 @@ class PostViewModel : ViewModel() {
     fun edit(post: Post) {
         edited.value = post
     }
-    // функция изменения контента
+    // функция изменения контента и сохранения
     fun changeContentAndSave(content: String) {
         val text = content.trim()
         if (edited.value?.content == text) {

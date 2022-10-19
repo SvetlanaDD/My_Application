@@ -15,7 +15,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 6548,
             repost = 565,
-            view = 123456
+            view = 123456,
+            video = "https://www.youtube.com/watch?v=h4s0llOpKrU"
         ),
         Post(
             id = nextId++,
@@ -25,7 +26,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 5689,
             repost = 65,
-            view = 12365
+            view = 12365,
+            video = null
         ),
         Post(
             id = nextId++,
@@ -35,7 +37,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 654,
             repost = 48,
-            view = 2054
+            view = 2054,
+            video = null
         ),
         Post(
             id = nextId++,
@@ -45,7 +48,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 26589,
             repost = 2569,
-            view = 1235698
+            view = 1235698,
+            video = null
         ),
         Post(
             id = nextId++,
@@ -55,7 +59,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 1252,
             repost = 526,
-            view = 25658
+            view = 25658,
+            video = null
         ),
         Post(
             id = nextId++,
@@ -65,7 +70,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 25,
             repost = 46,
-            view = 123
+            view = 123,
+            video = null
         ),
         Post(
             id = nextId++,
@@ -75,7 +81,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 12,
             repost = 2,
-            view = 45
+            view = 45,
+            video = null
         ),
         Post(
             id = nextId++,
@@ -85,7 +92,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 11,
             repost = 2,
-            view = 32
+            view = 32,
+            video = null
         ),
         Post(
             id = nextId++,
@@ -95,7 +103,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likedByMe = false,
             likes = 10,
             repost = 5,
-            view = 20
+            view = 20,
+            video = null
         )
     )
     private val data = MutableLiveData(posts)
