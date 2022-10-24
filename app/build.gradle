@@ -4,19 +4,21 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "ru.netology.nmedia"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildFeatures.viewBinding = true
+    buildFeatures {
+        viewBinding true
+    }
 
     buildTypes {
         release {
@@ -46,6 +48,7 @@ dependencies {
     def espresso_core_version = "3.4.0"
     def activity_version = "1.5.1"
     def lifecycle_version = "2.5.1"
+    def gson_version = "2.9.1"
 
     //noinspection GradleDependency
     implementation "androidx.core:core-ktx:$core_version"
@@ -60,6 +63,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     //noinspection GradleDependency
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "com.google.code.gson:gson:$gson_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
