@@ -2,6 +2,7 @@ package ru.netology.nmedia.adapter
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -12,13 +13,12 @@ import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.activity.Function
 import ru.netology.nmedia.dto.Post
 
-//typealias OnLikeListener = (post: Post) -> Unit
-//typealias OnRepostListener = (post: Post) -> Unit
 interface OnInteractionListener {
     fun onLike(post: Post) {}
     fun onRepost(post: Post) {}
     fun onEdit(post: Post) {}
     fun onRemove(post: Post) {}
+    fun onVideo(urlVideo: String) {}
 }
 
 class PostsAdapter(
@@ -48,6 +48,11 @@ class PostViewHolder(
             like.text = Function().rulesCount(post.likes)
             repost.text = Function().rulesCount(post.repost)
             view.text = Function().rulesCount(post.view)
+            if (post.video == null) {
+                binding.groupVideo.visibility = View.GONE
+            } else {
+                binding.groupVideo.visibility = View.VISIBLE
+            }
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -67,13 +72,9 @@ class PostViewHolder(
                         }
                     }
                 }.show()
- //               menu.isChecked = false      ///!!!!!!!
             }
 
             like.isChecked = post.likedByMe
-//            like.setImageResource(
-//                if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
-//            )
 
             like.setOnClickListener{
                 onInteractionListener.onLike(post)
@@ -83,7 +84,13 @@ class PostViewHolder(
                 onInteractionListener.onRepost(post)
             }
 
+            videoButton.setOnClickListener {
+                post.video?.let { url -> onInteractionListener.onVideo(url) }
+            }
 
+            video.setOnClickListener {
+                post.video?.let { url -> onInteractionListener.onVideo(url) }
+            }
         }
     }
 }
