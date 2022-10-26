@@ -29,18 +29,20 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun edit(post: Post) {
         edited.value = post
     }
-    // функция изменения контента и сохранения
-    fun changeContentAndSave(content: String) {
+
+    fun save() {
+        edited.value?.let {
+            repository.save(it)
+        }
+        edited.value = empty
+    }
+    fun changeContent(content: String) {
         val text = content.trim()
         if (edited.value?.content == text) {
             return
         }
-        edited.value?.let {
-            repository.save(it.copy(content = text))
-        }
-        edited.value = empty
+        edited.value = edited.value?.copy(content = text)
     }
-
     fun likeById(id: Long) = repository.likeById(id)
     fun repostById(id: Long) = repository.repostById(id)
     fun removeById(id: Long) = repository.removeById(id)

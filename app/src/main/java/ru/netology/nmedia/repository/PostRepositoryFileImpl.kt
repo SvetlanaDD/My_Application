@@ -104,7 +104,7 @@ class PostRepositoryFileImpl(private val context: Context) : PostRepository {
                     likes = 12,
                     repost = 2,
                     view = 45,
-                    video = null
+                    video = "https://www.youtube.com/watch?v=h4s0llOpKrU"
                 ),
                 Post(
                     id = nextId++,
