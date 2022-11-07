@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
-import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.activity.Function
+import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 
 interface OnInteractionListener {
@@ -18,12 +18,13 @@ interface OnInteractionListener {
     fun onRepost(post: Post) {}
     fun onEdit(post: Post) {}
     fun onRemove(post: Post) {}
+    fun onFragment(post: Post) {}
     fun onVideo(urlVideo: String) {}
 }
 
 class PostsAdapter(
     private val onInteractionListener: OnInteractionListener
-    ) : ListAdapter<Post, PostViewHolder>(PostDiffCallback()) {
+) : ListAdapter<Post, PostViewHolder>(PostDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -76,11 +77,11 @@ class PostViewHolder(
 
             like.isChecked = post.likedByMe
 
-            like.setOnClickListener{
+            like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
 
-            repost.setOnClickListener{
+            repost.setOnClickListener {
                 onInteractionListener.onRepost(post)
             }
 
@@ -90,6 +91,9 @@ class PostViewHolder(
 
             video.setOnClickListener {
                 post.video?.let { url -> onInteractionListener.onVideo(url) }
+            }
+            itemView.setOnClickListener {
+                onInteractionListener.onFragment(post)
             }
         }
     }
